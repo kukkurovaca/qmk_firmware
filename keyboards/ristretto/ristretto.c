@@ -23,15 +23,46 @@ enum layers {
 	_ADJUST
 };
 
-#ifdef OLED_ENABLE
-oled_rotation_t oled_init_kb(oled_rotation_t rotation) {
-    return OLED_ROTATION_270;
+// bool encoder_update_kb(uint8_t index, bool clockwise) {
+//     if (!encoder_update_user(index, clockwise)) { return false; }
+// 	if(index == 0) {
+// 		if (clockwise) {
+// 			tap_code(KC_WH_R);
+// 		} else {
+// 			tap_code(KC_WH_L);
+// 			}
+// 		}
+// 	return true;
+// }
+
+bool encoder_update_kb(uint8_t index, bool clockwise) {
+    if (!encoder_update_user(index, clockwise)) { return false; }
+	if(index == 0) {
+		if(IS_LAYER_ON(_RAISE)){
+			if (clockwise) {
+				tap_code(KC_MS_WH_DOWN);
+			} else {
+				tap_code(KC_MS_WH_UP);
+				}
+			} else{
+		    if (clockwise){
+     			 tap_code(KC_WH_R);
+    		} else{
+     		 tap_code(KC_WH_L);
+			}
+		}
+	}
+	return true;
+	
 }
 
-bool oled_task_kb(void) {
-    if (!oled_task_user()) {
-        return false;
-    }
+
+#ifdef OLED_ENABLE
+oled_rotation_t oled_init_user(oled_rotation_t rotation) {
+	return OLED_ROTATION_270;
+}
+
+__attribute__((weak)) void oled_task_user(void) {
 	oled_write_P(PSTR("\n\n"), false);
 	oled_write_ln_P(PSTR("LAYER"), false);
 	oled_write_ln_P(PSTR(""), false);
@@ -49,7 +80,6 @@ bool oled_task_kb(void) {
 			oled_write_P(PSTR("ADJ\n"), false);
 			break;
 	}
-    return false;
 }
 
 #endif
