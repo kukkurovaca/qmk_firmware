@@ -25,9 +25,9 @@ enum layers {
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	[_BASE] = LAYOUT(
-		KC_ESC              , KC_Q      , KC_W      , KC_E    , KC_R    , KC_T              , KC_Y    , KC_U    , KC_I    , KC_O    , KC_P    , KC_MINS ,
-		LT(_RAISE, KC_TAB)  , KC_A      , KC_S      , KC_D    , KC_F    , KC_G              , KC_H    , KC_J    , KC_K    , KC_L    , KC_SCLN , KC_QUOT ,
-		KC_LSFT             , KC_Z      , KC_X      , KC_C    , KC_V    , KC_B              , KC_N    , KC_M    , KC_COMM , KC_DOT  , KC_SLSH , KC_RSFT ,
+		LALT_T(KC_ESC)      , KC_Q      , KC_W      , KC_E    , KC_R    , KC_T              , KC_Y    , KC_U    , KC_I    , KC_O    , KC_P    , RALT_T(KC_MINS) ,
+		LT(_RAISE, KC_TAB)  , KC_A      , KC_S      , KC_D    , KC_F    , KC_G              , KC_H    , KC_J    , KC_K    , KC_L    , KC_SCLN , LT(_RAISE, KC_QUOT) ,
+		KC_LSFT             , KC_Z      , KC_X      , KC_C    , KC_V    , KC_B              , KC_N    , KC_M    , KC_COMM , KC_DOT  , KC_SLSH , RSFT_T(KC_ENT) ,
 		KC_LCTL             , MO(_RAISE), MO(_LOWER),KC_LALT,KC_ENT  , KC_BSPC , KC_MUTE , KC_SPC  , KC_RSFT ,MO(_RAISE),KC_RALT , KC_RGUI , RCTL_T(KC_ENT)
 	),
 	[_RAISE] = LAYOUT(
