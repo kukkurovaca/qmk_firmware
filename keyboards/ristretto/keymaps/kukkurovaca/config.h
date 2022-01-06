@@ -53,5 +53,4 @@
 
 /* Tap-hold configuration settings */
 #define PERMISSIVE_HOLD
-#define HOLD_ON_OTHER_KEY_PRESS
 #define IGNORE_MOD_TAP_INTERRUPT
