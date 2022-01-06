@@ -51,5 +51,7 @@
 #define ENCODERS_PAD_B { D6 }
 #define ENCODER_RESOLUTION 3
 
-
+/* Tap-hold configuration settings */
 #define PERMISSIVE_HOLD
+#define HOLD_ON_OTHER_KEY_PRESS
+#define IGNORE_MOD_TAP_INTERRUPT
