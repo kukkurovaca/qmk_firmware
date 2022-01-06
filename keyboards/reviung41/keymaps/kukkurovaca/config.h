@@ -146,4 +146,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 // #define BOOTMAGIC_LITE_COLUMN 0
 
 
+/* Tap-hold configuration settings */
 #define PERMISSIVE_HOLD
+#define HOLD_ON_OTHER_KEY_PRESS
+#define IGNORE_MOD_TAP_INTERRUPT
