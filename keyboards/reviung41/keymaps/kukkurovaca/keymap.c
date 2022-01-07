@@ -52,3 +52,16 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
 };
 
+// Setting a longer tapping for - and ', since otherwise it's hard to get those tap values at some typing speeds. 
+
+
+uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
+    switch (keycode) {
+        case RALT_T(KC_MINS):
+            return TAPPING_TERM + 65;
+        case LT(_RAISE, KC_QUOT):
+            return TAPPING_TERM + 65;
+        default:
+            return TAPPING_TERM;
+    }
+}
