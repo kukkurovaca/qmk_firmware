@@ -149,3 +149,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 /* Tap-hold configuration settings */
 #define PERMISSIVE_HOLD
 #define IGNORE_MOD_TAP_INTERRUPT
+#define TAPPING_TERM 135
+#define HOLD_ON_OTHER_KEY_PRESSS
+#define TAPPING_FORCE_HOLD
