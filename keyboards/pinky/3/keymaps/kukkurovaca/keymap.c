@@ -33,10 +33,10 @@ enum custom_keycodes {
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_QWERTY] = LAYOUT_split_3x7_4(
-        KC_ESC            , KC_Q   , KC_W   , KC_E    , KC_R     , KC_T   , KC_LPRN  ,    KC_RPRN, KC_Y   , KC_U   , KC_I   , KC_O   , KC_P   , KC_MINUS  ,
-        LT(_LOWER, KC_TAB), KC_A   , KC_S   , KC_D    , KC_F     , KC_G   , KC_LBRC  ,    KC_RBRC, KC_H   , KC_J   , KC_K   , KC_L   , KC_SCLN, KC_QUOT   ,
-        KC_LSFT, KC_Z     , KC_X   , KC_C    , KC_V     , KC_B   , LOWER    ,    RAISE  , KC_N   , KC_M   , KC_COMM, KC_DOT , KC_SLSH, KC_RSHIFT ,
-                                   KC_LCTRL, KC_LGUI  , KC_LALT, KC_BSPACE,    KC_ENT , KC_SPC , LOWER  , KC_RCTRL
+        LCTL_T(KC_ESC)    , KC_Q   , KC_W   , KC_E    , KC_R     , KC_T   , KC_LPRN  ,    KC_RPRN, KC_Y   , KC_U   , KC_I   , KC_O   , KC_P   , RALT_T(KC_MINS)  ,
+        LT(_LOWER, KC_TAB), KC_A   , KC_S   , KC_D    , KC_F     , KC_G   , KC_LBRC  ,    KC_RBRC, KC_H   , KC_J   , KC_K   , KC_L   , KC_SCLN, LT(_LOWER, KC_QUOT)   ,
+        KC_LSFT           , KC_Z     , KC_X   , KC_C    , KC_V     , KC_B   , LOWER    ,    RAISE  , KC_N   , KC_M   , KC_COMM, KC_DOT , KC_SLSH, RSFT_T(KC_ENT) ,
+                                   KC_LCTRL, KC_LGUI  , KC_LALT, KC_BSPACE,    KC_ENT , KC_SPC , LOWER  , RCTL_T(KC_ENT)
     ),
     [_LOWER] = LAYOUT_split_3x7_4(
         KC_GRV , S(KC_1), KC_UP  , S(KC_2) , S(KC_4)   , S(KC_5)   , _______,    _______, S(KC_7), KC_7   , KC_8   , KC_9   , KC_PAST, KC_PSLS,
@@ -45,9 +45,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                    _______, _______, _______, KC_DEL,    KC_P0, KC_P0 , KC_PDOT, KC_PDOT
     ),
     [_RAISE] = LAYOUT_split_3x7_4(
-        _______, G(KC_TAB), _______, _______, _______, A(KC_F4), _______,    _______, KC_PSCR, KC__VOLUP  , KC_HOME, KC_PGUP, _______, _______,
-        _______, C(KC_1)  , C(KC_2), C(KC_3), C(KC_4), C(KC_9) , _______,    _______, _______, KC__VOLDOWN, KC_END , KC_PGDN, _______, _______,
-        _______, _______, _______, KC_CAPS, _______, _______ , _______,    _______, _______, KC__MUTE   , _______, _______, _______, _______,
+        RESET  , G(KC_TAB), _______, _______, _______, A(KC_F4)     , _______,    _______, KC_PSCR, KC__VOLUP  , KC_HOME, KC_PGUP, KC_F11 , DT_UP  ,
+        RCG_SWP, C(KC_1)  , C(KC_2), C(KC_3), C(KC_4), C(KC_9)      , _______,    _______, _______, KC__VOLDOWN, KC_END , KC_PGDN, KC_WH_U, DT_PRNT,
+        RCG_NRM, _______  , _______, KC_CAPS, _______, LGUI(KC_DOT) , _______,    _______, _______, KC__MUTE   , KC_WH_L, KC_WH_R, KC_WH_D, DT_DOWN,
                                      _______, _______, _______ , _______,    _______, _______, _______, _______
     ),
     [_ADJUST] = LAYOUT_split_3x7_4(
@@ -94,4 +94,19 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             break;
     }
     return true;
+}
+
+
+// Setting a longer tapping for - and ', since otherwise it's hard to get those tap values at some typing speeds. 
+
+
+uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
+    switch (keycode) {
+        case RALT_T(KC_MINS):
+            return TAPPING_TERM + 65;
+        case LT(_RAISE, KC_QUOT):
+            return TAPPING_TERM + 65;
+        default:
+            return TAPPING_TERM;
+    }
 }
