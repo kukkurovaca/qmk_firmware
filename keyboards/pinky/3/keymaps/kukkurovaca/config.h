@@ -26,6 +26,10 @@
 
 #define USE_SERIAL_PD2
 
+/* Tap-hold configuration settings */
+#define PERMISSIVE_HOLD
+#define IGNORE_MOD_TAP_INTERRUPT
+#define TAPPING_TERM 135
 #define TAPPING_FORCE_HOLD
-#define TAPPING_TERM 200
-#define RETRO_TAPPPING
+#define RETRO_TAPPING
+#define TAPPING_TERM_PER_KEY
