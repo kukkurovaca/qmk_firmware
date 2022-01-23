@@ -104,7 +104,7 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
         case RALT_T(KC_MINS):
             return TAPPING_TERM + 65;
-        case LT(_RAISE, KC_QUOT):
+        case LT(_LOWER, KC_QUOT):
             return TAPPING_TERM + 65;
         default:
             return TAPPING_TERM;
