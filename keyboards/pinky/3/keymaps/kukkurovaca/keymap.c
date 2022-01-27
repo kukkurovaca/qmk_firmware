@@ -39,9 +39,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                    KC_LCTRL, KC_LGUI  , KC_LALT, KC_BSPACE,    KC_ENT , KC_SPC , LOWER  , RCTL_T(KC_ENT)
     ),
     [_LOWER] = LAYOUT_split_3x7_4(
-        KC_GRV , S(KC_1), KC_UP  , S(KC_2) , S(KC_4)   , S(KC_5)   , _______,    _______, S(KC_7), KC_7   , KC_8   , KC_9   , KC_PAST, KC_PSLS,
-        _______, KC_LEFT, KC_DOWN, KC_RIGHT, S(KC_9)   , S(KC_0)   , _______,    _______, S(KC_6), KC_4   , KC_5   , KC_6   , KC_PMNS, KC_EQL ,
-        _______, KC_LBRC, KC_RBRC, S(KC_3) , S(KC_LBRC), S(KC_RBRC), _______,    _______, KC_GRV , KC_1   , KC_2   , KC_3   , KC_PPLS, KC_BSLS,
+        KC_GRV , S(KC_1), KC_UP        , S(KC_2) , S(KC_4)   , S(KC_5)   , _______,    _______, S(KC_7), KC_7   , KC_8   , KC_9   , KC_PAST, KC_PSLS,
+        _______, KC_LEFT, KC_DOWN      , KC_RIGHT, S(KC_9)   , S(KC_0)   , _______,    _______, S(KC_6), KC_4   , KC_5   , KC_6   , KC_PMNS, KC_EQL ,
+        _______, S(KC_LBRC), S(KC_RBRC), S(KC_3) , KC_LBRC   ,KC_RBRC, _______,    _______, KC_GRV , KC_1   , KC_2   , KC_3   , KC_PPLS, KC_BSLS,
                                    _______, _______, _______, KC_DEL,    KC_P0, KC_P0 , KC_PDOT, KC_PDOT
     ),
     [_RAISE] = LAYOUT_split_3x7_4(
