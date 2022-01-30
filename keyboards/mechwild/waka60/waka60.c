@@ -20,7 +20,7 @@ void board_init(void) {
     // disabled before using B7 as I2C1_SDA.
     setPinInputHigh(B9);
 }
-/* #ifdef ENCODER_ENABLE
+#ifdef ENCODER_ENABLE
 bool encoder_update_kb(uint8_t index, bool clockwise) {
     if (!encoder_update_user(index, clockwise)) { return false; }
     switch (index) {
@@ -30,31 +30,6 @@ bool encoder_update_kb(uint8_t index, bool clockwise) {
             } else {
                 tap_code(KC_VOLD);
             }
-        break;
-    }
-    return true;
-}
-#endif */
-
-
-#ifdef ENCODER_ENABLE
-bool encoder_update_kb(uint8_t index, bool clockwise) {
-    if (!encoder_update_user(index, clockwise)) { return false; }
-    switch (index) {
-        case 0:
-			if(IS_LAYER_ON(_RAISE)){
-				if (clockwise) {
-					tap_code(KC_MS_WH_DOWN);
-				} else {
-					tap_code(KC_MS_WH_UP);
-					}
-				} else{
-				if (clockwise){
-					tap_code(KC_WH_R);
-				} else{
-				tap_code(KC_WH_L);
-				}
-			}
         break;
     }
     return true;
