@@ -20,6 +20,7 @@ void board_init(void) {
     // disabled before using B7 as I2C1_SDA.
     setPinInputHigh(B9);
 }
+/* Commenting out encoder to be defined in keymap.c
 #ifdef ENCODER_ENABLE
 bool encoder_update_kb(uint8_t index, bool clockwise) {
     if (!encoder_update_user(index, clockwise)) { return false; }
@@ -35,3 +36,4 @@ bool encoder_update_kb(uint8_t index, bool clockwise) {
     return true;
 }
 #endif
+ */
