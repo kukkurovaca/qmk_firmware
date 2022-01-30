@@ -68,5 +68,29 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
         default:
             return TAPPING_TERM;
     }
+};
+
+
+#ifdef ENCODER_ENABLE
+bool encoder_update_kb(uint8_t index, bool clockwise) {
+    if (!encoder_update_user(index, clockwise)) { return false; }
+	if(index == 0) {
+		if(IS_LAYER_ON(_RAISE)){
+			if (clockwise) {
+				tap_code(KC_MS_WH_DOWN);
+			} else {
+				tap_code(KC_MS_WH_UP);
+				}
+			} else{
+		    if (clockwise){
+     			 tap_code(KC_WH_R);
+    		} else{
+     		 tap_code(KC_WH_L);
+			}
+		}
+	}
+	return true;
+	
 }
+#endif
 
