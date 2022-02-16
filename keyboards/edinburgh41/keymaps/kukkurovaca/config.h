@@ -230,3 +230,12 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #    define THUMBSTICK_PIN_Y B6
 #    define THUMBSTICK_DEBUG
 #endif
+
+
+/* Tap-hold configuration settings */
+#define PERMISSIVE_HOLD
+#define IGNORE_MOD_TAP_INTERRUPT
+#define TAPPING_TERM 135
+#define TAPPING_FORCE_HOLD
+#define RETRO_TAPPING
+#define TAPPING_TERM_PER_KEY
