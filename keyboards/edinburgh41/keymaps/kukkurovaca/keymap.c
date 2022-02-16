@@ -22,6 +22,13 @@ enum layer_names {
     _ADJUST
 };
 
+#include "keycodes.h"
+
+#ifdef THUMBSTICK_ENABLE
+#    include "thumbstick.h"
+#endif
+
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_BASE] = LAYOUT_reviung41(
     LCTL_T(KC_ESC)    ,  KC_Q,     KC_W,     KC_E,     KC_R,      KC_T,               KC_Y,     KC_U,     KC_I,     KC_O,     KC_P,     RALT_T(KC_MINS),
@@ -65,3 +72,26 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
             return TAPPING_TERM;
     }
 }
+
+
+bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+
+  switch (keycode) {
+
+#ifdef THUMBSTICK_ENABLE
+        case TMB_MODE:
+            if (record->event.pressed) {
+                thumbstick_mode_cycle_forward();
+            }
+#endif
+    }
+    return true;
+}
+
+#ifdef RGBLIGHT_ENABLE
+void keyboard_post_init_user(void) {
+  rgblight_enable_noeeprom(); // Enables RGB, without saving settings
+  rgblight_sethsv_noeeprom(HSV_WHITE);
+  rgblight_mode_noeeprom(RGBLIGHT_MODE_STATIC_LIGHT);
+}
+#endif
