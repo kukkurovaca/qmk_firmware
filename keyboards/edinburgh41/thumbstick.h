@@ -8,21 +8,21 @@ typedef enum {
 } thumbstick_mode_t;
 
 // Parameters
-#define THUMBSTICK_DEAD_ZONE 2  // Values below this are ignored (deadzone)
-#define THUMBSTICK_FINE_ZONE 100  // Values below this enable fine movement
+#define THUMBSTICK_DEAD_ZONE 10    // Values below this are ignored (deadzone) Default 2
+#define THUMBSTICK_FINE_ZONE 120 // Values below this enable fine movement Default 100
 
 #define THUMBSTICK_MODE THUMBSTICK_MODE_MOUSE
-#define THUMBSTICK_SPEED 30  // Range [0 - 127]
-#define THUMBSTICK_FINE_SPEED 8
-#define THUMBSTICK_SCROLL_SPEED 1
+#define THUMBSTICK_SPEED 25  // Range [0 - 127] default 30
+#define THUMBSTICK_FINE_SPEED 12 // Default  8
+#define THUMBSTICK_SCROLL_SPEED 6 // Default 1
 
-#define THUMBSTICK_EIGHT_AXIS true
+#define THUMBSTICK_EIGHT_AXIS false // Default true
 #define THUMBSTICK_AXIS_SEPARATION 120  // range [0 - 127], angle away from diagonals
 
 // Implicit and derived constants
 #define THUMBSTICK_TIMEOUT 10          // Mouse report throttling time in ms
 #define THUMBSTICK_SCROLL_TIMEOUT 200  // Mouse scroll throttling time in ms
-#define THUMBSTICK_RANGE_START 0
+#define THUMBSTICK_RANGE_START  1 // Default 0
 #define THUMBSTICK_RANGE_STOP 1023
 #define THUMBSTICK_RANGE_CENTER (THUMBSTICK_RANGE_STOP - THUMBSTICK_RANGE_START + 1) / 2
 #define THUMBSTICK_RANGE_MOVEMENT (THUMBSTICK_RANGE_CENTER - THUMBSTICK_DEAD_ZONE)
