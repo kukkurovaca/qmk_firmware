@@ -48,7 +48,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 		KC_GRV	, S(KC_1)   , KC_UP      , S(KC_2) , S(KC_4)   , S(KC_5)        , S(KC_7) , KC_7    , KC_8    , KC_9    , KC_PAST , KC_PSLS ,
 		KC_CAPS	, KC_LEFT   , KC_DOWN    , KC_RIGHT, S(KC_9)   , S(KC_0)        , S(KC_6) , KC_4    , KC_5    , KC_6    , KC_PMNS , KC_EQL  ,
 		KC_TRNS	, S(KC_LBRC), S(KC_RBRC) , S(KC_3) , KC_LBRC   , KC_RBRC        , KC_P0   , KC_1    , KC_2    , KC_3    , KC_PPLS , KC_BSLS ,
-                                            MO(_LOWER),   KC_DEL,  KC_BSPC,  KC_P0,  KC_PDOT
+                                            OSL(_LOWER),   KC_DEL,  KC_BSPC,  KC_P0,  KC_PDOT
   ),
 
   [_ADJUST] = LAYOUT_edinburgh41(
