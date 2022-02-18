@@ -40,7 +40,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_LOWER] = LAYOUT_edinburgh41(
 		RESET   , G(KC_TAB), KC_F3   , KC_F4   , KC_F5   , KC_F6	         ,    KC_PSCR , KC_VOLU  , KC_HOME , KC_PGUP , KC_F11   , DT_UP  ,
 		RCG_SWP	, C(KC_1)  , C(KC_2) , C(KC_3) , C(KC_4) , C(KC_9)           ,    KC_NO   , KC_VOLD  , KC_END  , KC_PGDN , KC_WH_U   , DT_PRNT   ,
-		RCG_NRM , RGB_TOG  , KC_NO   , KC_CAPS , KC_NO   , LGUI(KC_DOT)    ,    KC_NO   , KC_MUTE  , KC_WH_L   , KC_WH_R   , KC_WH_D   , DT_DOWN   ,
+		RCG_NRM , RGB_TOG  , TMB_MODE   , KC_CAPS , KC_NO   , LGUI(KC_DOT)    ,    KC_NO   , KC_MUTE  , KC_WH_L   , KC_WH_R   , KC_WH_D   , DT_DOWN   ,
                                             _______,   OSL(_ADJUST),  KC_ENT,   _______,  _______
   ),
 
