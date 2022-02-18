@@ -30,28 +30,28 @@ enum layer_names {
 
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
-  [_BASE] = LAYOUT_reviung41(
+  [_BASE] = LAYOUT_edinburgh41(
     LCTL_T(KC_ESC)    ,  KC_Q,     KC_W,     KC_E,     KC_R,      KC_T,               KC_Y,     KC_U,     KC_I,     KC_O,     KC_P,     RALT_T(KC_MINS),
     LT(_RAISE, KC_TAB),  KC_A,     KC_S,     KC_D,     KC_F,      KC_G,               KC_H,     KC_J,     KC_K,     KC_L,     KC_SCLN,  LT(_RAISE, KC_QUOT),
     KC_LSFT           ,  KC_Z,     KC_X,     KC_C,     KC_V,      KC_B,               KC_N,     KC_M,     KC_COMM,  KC_DOT,   KC_SLSH,  RSFT_T(KC_ENT),
                                             KC_LALT,   KC_BSPC,  MO(_LOWER),  KC_SPC ,    RCTL_T(KC_ENT)
   ),
 
-  [_LOWER] = LAYOUT_reviung41(
+  [_LOWER] = LAYOUT_edinburgh41(
 		RESET   , G(KC_TAB), KC_F3   , KC_F4   , KC_F5   , KC_F6	         ,    KC_PSCR , KC_VOLU  , KC_HOME , KC_PGUP , KC_F11   , DT_UP  ,
 		RCG_SWP	, C(KC_1)  , C(KC_2) , C(KC_3) , C(KC_4) , C(KC_9)           ,    KC_NO   , KC_VOLD  , KC_END  , KC_PGDN , KC_WH_U   , DT_PRNT   ,
 		RCG_NRM , RGB_TOG  , KC_NO   , KC_CAPS , KC_NO   , LGUI(KC_DOT)    ,    KC_NO   , KC_MUTE  , KC_WH_L   , KC_WH_R   , KC_WH_D   , DT_DOWN   ,
-                                            _______,   MO(_ADJUST),  KC_ENT,   _______,  _______
+                                            _______,   OSL(_ADJUST),  KC_ENT,   _______,  _______
   ),
 
-  [_RAISE] = LAYOUT_reviung41(
+  [_RAISE] = LAYOUT_edinburgh41(
 		KC_GRV	, S(KC_1)   , KC_UP      , S(KC_2) , S(KC_4)   , S(KC_5)        , S(KC_7) , KC_7    , KC_8    , KC_9    , KC_PAST , KC_PSLS ,
 		KC_CAPS	, KC_LEFT   , KC_DOWN    , KC_RIGHT, S(KC_9)   , S(KC_0)        , S(KC_6) , KC_4    , KC_5    , KC_6    , KC_PMNS , KC_EQL  ,
 		KC_TRNS	, S(KC_LBRC), S(KC_RBRC) , S(KC_3) , KC_LBRC   , KC_RBRC        , KC_P0   , KC_1    , KC_2    , KC_3    , KC_PPLS , KC_BSLS ,
                                             MO(_LOWER),   KC_DEL,  KC_BSPC,  KC_P0,  KC_PDOT
   ),
 
-  [_ADJUST] = LAYOUT_reviung41(
+  [_ADJUST] = LAYOUT_edinburgh41(
     RGB_VAI,   RGB_SAI, RGB_HUI,  RGB_MOD,  XXXXXXX,   RGB_TOG,            XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,
     RGB_VAD,   RGB_SAD, RGB_HUD,  RGB_RMOD, XXXXXXX,   XXXXXXX,            XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,
     XXXXXXX,   XXXXXXX, XXXXXXX,  XXXXXXX,  XXXXXXX,   XXXXXXX,            RESET,    XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,
@@ -82,6 +82,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         case TMB_MODE:
             if (record->event.pressed) {
                 thumbstick_mode_cycle_forward();
+
             }
 #endif
     }
@@ -94,4 +95,5 @@ void keyboard_post_init_user(void) {
   rgblight_sethsv_noeeprom(HSV_WHITE);
   rgblight_mode_noeeprom(RGBLIGHT_MODE_STATIC_LIGHT);
 }
-#endif
+#endif 
+
